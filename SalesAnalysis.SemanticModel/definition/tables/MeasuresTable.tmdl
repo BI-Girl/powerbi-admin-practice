@@ -14,6 +14,9 @@ table MeasuresTable
 		formatString: 0
 		lineageTag: 13b6cb3c-d6ea-4562-b7a8-749bb3af6ee7
 
+	measure HelloWorld = "Hello World"
+		lineageTag: 842fbe0b-fa39-43ff-8954-8734389435a6
+
 	column Column
 		formatString: 0
 		lineageTag: 62007f09-2e90-4bbc-bb9f-a152c2f810b0
