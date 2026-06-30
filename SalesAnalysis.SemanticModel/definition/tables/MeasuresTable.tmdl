@@ -1,0 +1,24 @@
+table MeasuresTable
+	lineageTag: 735d20c8-3595-44e7-87b1-975c56cc4670
+
+	measure 'Total Sales' = SUM(Sales[Sales])
+		formatString: 0
+		lineageTag: f41f39c9-e906-46e2-98ae-5349942d4d5a
+
+	column Column
+		formatString: 0
+		lineageTag: 62007f09-2e90-4bbc-bb9f-a152c2f810b0
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [Column]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition MeasuresTable = calculated
+		mode: import
+		source = Row("Column", BLANK())
+
+	annotation PBI_Id = 04bcca78777743e5bf473901617b4896
+
+	annotation 436ba87b-9c83-4389-a31b-ebd06a36be98 = {"Expression":""}
+
