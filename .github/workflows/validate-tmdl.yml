@@ -1,0 +1,35 @@
+name: Validate TMDL Files
+
+on:
+  pull_request:
+    branches: [ main ]
+  push:
+    branches: [ main ]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Check for unresolved merge conflict markers
+        run: |
+          echo "Checking for leftover conflict markers in TMDL files..."
+          if grep -rE "^(<<<<<<<|=======|>>>>>>>)" --include="*.tmdl" .; then
+            echo "ERROR: Unresolved merge conflict markers found in TMDL files!"
+            exit 1
+          else
+            echo "PASS: No conflict markers found."
+          fi
+
+      - name: Check measure naming convention
+        run: |
+          echo "Checking measure names start with uppercase letter..."
+          BAD_MEASURES=$(grep -rEo "measure [a-z][A-Za-z0-9_' ]*" --include="*.tmdl" . || true)
+          if [ -n "$BAD_MEASURES" ]; then
+            echo "WARNING: Found measures that may not follow naming convention:"
+            echo "$BAD_MEASURES"
+          else
+            echo "PASS: All measures follow naming convention."
+          fi
