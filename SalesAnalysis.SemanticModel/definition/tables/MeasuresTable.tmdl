@@ -17,6 +17,9 @@ table MeasuresTable
 	measure HelloWorld = "Hello World"
 		lineageTag: 842fbe0b-fa39-43ff-8954-8734389435a6
 
+	measure xyz = "xyz"
+		lineageTag: 14dcacfe-c549-451d-aa75-040b9f36410e
+
 	column Column
 		formatString: 0
 		lineageTag: 62007f09-2e90-4bbc-bb9f-a152c2f810b0
