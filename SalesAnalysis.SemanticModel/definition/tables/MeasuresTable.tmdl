@@ -10,10 +10,6 @@ table MeasuresTable
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	measure EastSales = CALCULATE(sum(Sales[Sales]),Sales[Region]="East")
-		formatString: 0
-		lineageTag: c2bf3496-8428-447f-b8b2-9131da3f134b
-
 	column Column
 		formatString: 0
 		lineageTag: 62007f09-2e90-4bbc-bb9f-a152c2f810b0
