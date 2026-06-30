@@ -2,13 +2,17 @@ table MeasuresTable
 	lineageTag: 735d20c8-3595-44e7-87b1-975c56cc4670
 
 	measure 'Total Sales' = SUM(Sales[Sales])
-		formatString: "$#,##0"
+		formatString: $#,##0
 		lineageTag: f41f39c9-e906-46e2-98ae-5349942d4d5a
 
 	measure 'Avg Sales' = AVERAGE(Sales[Sales])
 		lineageTag: 73d2d5a9-ef9b-4cc7-a5b9-e4001473b0b7
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure EastSales = CALCULATE(sum(Sales[Sales]),Sales[Region]="East")
+		formatString: 0
+		lineageTag: c2bf3496-8428-447f-b8b2-9131da3f134b
 
 	column Column
 		formatString: 0
