@@ -5,6 +5,11 @@ table MeasuresTable
 		formatString: 0
 		lineageTag: f41f39c9-e906-46e2-98ae-5349942d4d5a
 
+	measure 'Avg Sales' = AVERAGE(Sales[Sales])
+		lineageTag: 73d2d5a9-ef9b-4cc7-a5b9-e4001473b0b7
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
 	column Column
 		formatString: 0
 		lineageTag: 62007f09-2e90-4bbc-bb9f-a152c2f810b0
